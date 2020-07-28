@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/2020SummerJavaStudy.iml" filepath="$PROJECT_DIR$/.idea/2020SummerJavaStudy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SCH/JChess/JChess.iml" filepath="$PROJECT_DIR$/SCH/JChess/JChess.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JJH/JJH.iml" filepath="$PROJECT_DIR$/JJH/JJH.iml" />
+      <module fileurl="file://$PROJECT_DIR$/KHG/KHG.iml" filepath="$PROJECT_DIR$/KHG/KHG.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SCH/SCH.iml" filepath="$PROJECT_DIR$/SCH/SCH.iml" />
+    </modules>
+  </component>
+</project>
