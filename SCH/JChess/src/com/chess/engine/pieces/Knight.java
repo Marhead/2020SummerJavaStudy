@@ -22,6 +22,7 @@ public class Knight extends Piece {
     }
 
     @Override
+    // Collection(순서가 없음)
     public Collection<Move> calculateLegalMoves(Board board) {
 
         final List<Move> legalMoves = new ArrayList<>();
@@ -30,7 +31,7 @@ public class Knight extends Piece {
             final int candidateDestinationCoordinate = this.piecePosition + currentCandidateOffset;
             if(BoardUtils.isValidTileCoordinate(candidateDestinationCoordinate)) {
                 if(isFirstColumnExclusion(this.piecePosition, currentCandidateOffset) ||
-                        isSecondColoumnExclusion(this.piecePosition, currentCandidateOffset) ||
+                        isSecondColumnExclusion(this.piecePosition, currentCandidateOffset) ||
                         isSeventhColumnExclusion(this.piecePosition, currentCandidateOffset) ||
                         isEighthColumnExclusion(this.piecePosition, currentCandidateOffset)) {
                     continue;
@@ -54,7 +55,7 @@ public class Knight extends Piece {
         return BoardUtils.FIRST_COLUMN[currentPosition] && (candidateOffset == -17 || candidateOffset == -10 || candidateOffset == 6 || candidateOffset == 15);
     }
 
-    private static boolean isSecondColoumnExclusion(final int currentPosition, final int candidateOffset) {
+    private static boolean isSecondColumnExclusion(final int currentPosition, final int candidateOffset) {
         return BoardUtils.SECOND_COLUMN[currentPosition] && (candidateOffset == -10 || candidateOffset == 6);
     }
 
