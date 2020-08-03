@@ -22,7 +22,6 @@ public class Knight extends Piece {
     }
 
     @Override
-    // Collection(순서가 없음)
     public Collection<Move> calculateLegalMoves(Board board) {
 
         final List<Move> legalMoves = new ArrayList<>();
