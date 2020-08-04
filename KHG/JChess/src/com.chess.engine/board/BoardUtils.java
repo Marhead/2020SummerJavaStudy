@@ -22,8 +22,8 @@ public class BoardUtils {
         final boolean[] column = new boolean[64];
         do {
             column[columnNumber] = true;
-            columnNumber += 8;
-        } while(columnNumber < 64);
+            columnNumber += NUM_TILES_PER_ROW;
+        } while(columnNumber < NUM_TILES);
         return column;
     }
 
