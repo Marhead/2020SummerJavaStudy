@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/JChess/JChess.iml" filepath="$PROJECT_DIR$/JChess/JChess.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SCH.iml" filepath="$PROJECT_DIR$/SCH.iml" />
+    </modules>
+  </component>
+</project>

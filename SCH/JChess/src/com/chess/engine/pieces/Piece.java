@@ -12,7 +12,7 @@ public abstract class Piece {
     protected final Alliance pieceAlliance;
 
     Piece(final int piecePosition, final Alliance pieceAlliance) {
-        this.pieceAliiance = pieceAlliance;
+        this.pieceAlliance = pieceAlliance;
         this.piecePosition = piecePosition;
     }
 

@@ -60,7 +60,7 @@ public abstract class Tile {
         private final Piece pieceOnTile;
 
         private OccupiedTile(int tileCoordinate, final Piece pieceOnTile){
-            super(tileCoordiante);
+            super(tileCoordinate);
             this.pieceOnTile = pieceOnTile;
         }
 
