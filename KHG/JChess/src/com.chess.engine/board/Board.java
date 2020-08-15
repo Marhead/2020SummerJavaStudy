@@ -9,6 +9,7 @@ import com.chess.engine.pieces.Queen;
 import com.chess.engine.pieces.King;
 import com.chess.engine.pieces.Pawn;
 import com.chess.engine.player.BlackPlayer;
+import com.chess.engine.player.Player;
 import com.chess.engine.player.WhitePlayer;
 import com.google.common.collect.ImmutableList;
 
@@ -46,6 +47,13 @@ public class Board {
             }
         }
         return builder.toString();
+    }
+    public Player whitePlayer() {
+        return this.whitePlayer;
+    }
+
+    public Player blackPlayer() {
+        return this.blackPlayer;
     }
 
     public Collection<Piece> getBlackPieces() {
