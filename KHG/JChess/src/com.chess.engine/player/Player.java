@@ -68,7 +68,6 @@ public abstract class Player {
         return this.isInCheck && !hasEscapeMoves();
     }
 
-
     public boolean isInStaleMate() {
         return !this.isInCheck && !hasEscapeMoves();
     }
