@@ -11,11 +11,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class Rook extends Piece {
-    private final static int[] CANDIDATE_MOVE_VECTOR_COORDINATES = { -8, -1 ,1, 8 };
+public class Queen extends Piece{
 
-    public Rook(final Alliance pieceAlliance, final int piecePosition) {
-        super(pieceType.ROOK, pieceAlliance, piecePosition);
+    private final static int[] CANDIDATE_MOVE_VECTOR_COORDINATES = { -9, -8, -7, -1, 1, 7, 8, 9 };
+
+    public Queen(final Alliance pieceAlliance, final int piecePosition) {
+        super(PieceType.QUEEN, pieceAlliance, piecePosition);
     }
 
     @Override
@@ -51,20 +52,20 @@ public class Rook extends Piece {
     }
 
     @Override
-    public Rook movePiece(final Move move) {
-        return new Rook(move.getMovedPiece().getPieceAlliance(), move.getDestinationCoordinate());
+    public Queen movePiece(final Move move) {
+        return new Queen(move.getMovedPiece().getPieceAlliance(), move.getDestinationCoordinate());
     }
 
     @Override
     public String toString() {
-        return PieceType.ROOK.toString();
+        return PieceType.QUEEN.toString();
     }
 
     private static boolean isFirstColumnExclusion(final int currentPosition, final int candidateOffset) {
-        return BoardUtils.FIRST_COLUMN[currentPosition] && (candidateOffset == -1);
+        return BoardUtils.FIRST_COLUMN[currentPosition] && (candidateOffset == -9 || candidateOffset == -1 || candidateOffset == 7);
     }
 
     private static boolean isEighthColumnExclusion(final int currentPosition, final int candidateOffset) {
-        return BoardUtils.EIGHTH_COLUMN[currentPosition] && (candidateOffset == 1);
+        return BoardUtils.EIGHTH_COLUMN[currentPosition] && (candidateOffset == -7 || candidateOffset == 1|| candidateOffset == 9);
     }
 }

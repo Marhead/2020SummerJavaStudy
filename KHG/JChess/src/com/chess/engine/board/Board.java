@@ -2,12 +2,12 @@ package com.chess.engine.board;
 
 import com.chess.engine.Alliance;
 import com.chess.engine.pieces.Bishop;
-import com.chess.engine.pieces.Knight;
-import com.chess.engine.pieces.Piece;
-import com.chess.engine.pieces.Rook;
-import com.chess.engine.pieces.Queen;
 import com.chess.engine.pieces.King;
+import com.chess.engine.pieces.Knight;
 import com.chess.engine.pieces.Pawn;
+import com.chess.engine.pieces.Piece;
+import com.chess.engine.pieces.Queen;
+import com.chess.engine.pieces.Rook;
 import com.chess.engine.player.BlackPlayer;
 import com.chess.engine.player.Player;
 import com.chess.engine.player.WhitePlayer;
@@ -155,6 +155,7 @@ public class Board {
 
         Map<Integer, Piece> boardConfig;
         Alliance nextMoveMaker;
+        Pawn enPassantPawn;
 
         public Builder() {
             this.boardConfig = new HashMap<>();
@@ -175,6 +176,7 @@ public class Board {
         }
 
 
-
+        public void setEnPassantPawn(Pawn enPassantPawn) {
+        }
     }
 }
