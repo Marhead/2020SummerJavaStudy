@@ -12,6 +12,7 @@ import com.chess.engine.player.BlackPlayer;
 import com.chess.engine.player.Player;
 import com.chess.engine.player.WhitePlayer;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Iterables;
 
 import java.util.*;
 
@@ -64,7 +65,7 @@ public class Board {
         return this.blackPieces;
     }
 
-    public Collection<Piece> getWhitePices() {
+    public Collection<Piece> getWhitePieces() {
         return this.whitePieces;
     }
 
@@ -144,6 +145,10 @@ public class Board {
         builder.setMoveMaker(Alliance.WHITE);
         //build the board
         return builder.build();
+    }
+
+    public Iterable<Move> getAllLegalMoves() {
+        return Iterables.unmodifiableIterable(Iterables.concat(this.whitePlayer.getLegalMoves(), this.blackPlayer.getLegalMoves()));
     }
 
     public static class Builder{
