@@ -16,7 +16,6 @@ public final class TourSolver implements ITourSolver {
     int boardheight;
     int[][] copyboard;
     int[][] movement = new int[][]{{-2,-1},{-2,1},{-1,-2},{-1,2},{1,-2},{1,2},{2,-1},{2,1}};
-    boolean findit = false;
     int[] solution;
 
     @Override
@@ -28,14 +27,12 @@ public final class TourSolver implements ITourSolver {
         objective = SetObjective(copyboard);
 
         for(int i=0; i<boardwidth; i++){
-            if(findit){
-                break;
-            }
             for(int j=0; j<boardheight; j++){
                 if(isSpace(i,j)){
                     copyboard[i][j] = 0;
-                    if(MoveRecursion(i,j,1,movement)){
-                        break;
+                    if(MoveRecursion(i,j,1)){
+                        solution = SequenceMaker(copyboard);
+                        return solution;
                     } else {
                         copyboard[i][j] = -1;
                     }
@@ -43,12 +40,8 @@ public final class TourSolver implements ITourSolver {
             }
         }
 
-        if(findit){
-            solution = SequenceMaker(copyboard);
-            return solution;
-        } else {
-            solution = new int[]{};
-            return solution;
+        solution = new int[]{};
+        return solution;
         }
     }
 
@@ -66,17 +59,16 @@ public final class TourSolver implements ITourSolver {
         return savezone;
     }
 
-    public boolean MoveRecursion(int i, int j, int n, int[][] inputmovement) { 
+    public boolean MoveRecursion(int i, int j, int n) { 
         if (n == objective){
-            findit = true;
             return true;
         }
 
-        for(int[] mov : inputmovement){
+        for(int[] mov : movement){
             if(isSpace(i+mov[0],j+mov[1])){
                 copyboard[i+mov[0]][j+mov[1]] = n;
                 
-                if(MoveRecursion(i+mov[0],j+mov[1],n+1,inputmovement)){
+                if(MoveRecursion(i+mov[0],j+mov[1],n+1)){
                     return true;
                 } else {
                     copyboard[i+mov[0]][j+mov[1]] = -1;
