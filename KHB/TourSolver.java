@@ -41,8 +41,7 @@ public final class TourSolver implements ITourSolver {
         }
 
         solution = new int[]{};
-        return solution;
-        }
+        return solution;     
     }
 
 
