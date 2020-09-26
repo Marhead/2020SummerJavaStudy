@@ -45,19 +45,68 @@ public final class TourSolver implements ITourSolver {
         return savezone;     
     }
 
+    public int[] Priority(int i, int j){
+        int[] priority = new int[8];
+        int[][] degree = new int[8][2];
+        int[] tmp;
+
+        int tmpmin;
+        int tmpindex;
+
+        for(int k = 0; k<8; k++){
+            degree[k][0] = k;
+            degree[k][1] = AvailCounter(i+movement[k][0],j+movement[k][1]);
+        }
+
+        for(int k = 0; k<8; k++){
+            tmpmin = degree[k][1];
+            tmpindex = k;
+            for(int l = k+1; l<8; l++){
+                if(tmpmin>degree[l][1]){
+                    tmpmin = degree[l][1];
+                    tmpindex = l;
+                }
+            }
+            tmp = degree[tmpindex];
+            degree[tmpindex] = degree[k];
+            degree[k] = tmp; 
+        }
+
+        for(int k=0; k<8; k++){
+            priority[k] = degree[k][0];
+        }
+
+        return priority;
+    }
+
+    public int AvailCounter(int i, int j){
+        int tmpcount = 0;
+        for(int[] mov : movement){
+            if(isSpace(i+mov[0],j+mov[1])){
+                tmpcount++;
+            }
+        }
+        return tmpcount;
+    }
+
     public boolean MoveRecursion(int i, int j, int n) { 
         if (n == objective){
             return true;
         }
+        int nexti;
+        int nextj;
+        int[] priority = Priority(i,j);
 
-        for(int[] mov : movement){
-            if(isSpace(i+mov[0],j+mov[1])){
-                copyboard[i+mov[0]][j+mov[1]] = true;
-                savezone[n]=(i+mov[0])*boardheight + j+mov[1];
-                if(MoveRecursion(i+mov[0],j+mov[1],n+1)){
+        for(int pri : priority){
+            nexti = i+movement[pri][0];
+            nextj = j+movement[pri][1];
+            if(isSpace(nexti,nextj)){
+                copyboard[nexti][nextj] = true;
+                savezone[n]=(nexti)*boardheight + nextj;
+                if(MoveRecursion(nexti,nextj,n+1)){
                     return true;
                 } else {
-                    copyboard[i+mov[0]][j+mov[1]] = false;
+                    copyboard[nexti][nextj] = false;
                 }
             }
         }
